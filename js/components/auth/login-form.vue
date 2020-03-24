@@ -1,4 +1,5 @@
 <template>
+<div>
   <form @submit.prevent="login" :class="{ error: failed }" data-cy="loginForm">
     <div class="logo">
       <img src="~#/../img/logo.svg" width="156" height="auto">
@@ -7,13 +8,27 @@
     <input v-model="email" type="email" placeholder="Email Address" autofocus required>
     <input v-model="password" type="password" placeholder="Password" required>
     <btn type="submit">Log In</btn>
+    <btn @click="showAddUserForm" green>Creat Account</btn>
   </form>
+  
+  <div class="modal-wrapper" :class="{ overlay: this.showingModalName }">
+    <add-user-form v-if="showingModalName === 'add-user-form'" @close="close"/>
+  </div>
+  
+    <!-- <div class="main-scroll-wrap">
+      <div class="users">
+        <user-card v-for="user in state.users" :user="user" @editUser="showEditUserForm" :key="user.id"/>
+      </div>
+    </div> -->
+  </div>
 </template>
 
 <script>
 import axios from 'axios'
 import { userStore } from '@/stores'
 import { ls } from '@/services'
+import { event } from '@/utils'
+
 
 const DEMO_ACCOUNT = {
   email: 'demo@koel.phanan.net',
@@ -22,7 +37,8 @@ const DEMO_ACCOUNT = {
 
 export default {
   components: {
-    Btn: () => import('@/components/ui/btn')
+    Btn: () => import('@/components/ui/btn'),
+    AddUserForm: () => import('@/components/user/add-form')
   },
 
   data: () => ({
@@ -30,10 +46,17 @@ export default {
     email: NODE_ENV === 'demo' ? DEMO_ACCOUNT.email : '',
     password: NODE_ENV === 'demo' ? DEMO_ACCOUNT.password : '',
     failed: false,
-    isDesktopApp: KOEL_ENV === 'app'
+    isDesktopApp: KOEL_ENV === 'app',
+    showingModalName: null,
+    boundData: {}
   }),
 
   methods: {
+    close () {
+      this.showingModalName = null
+      this.boundData = {}
+    },
+    showAddUserForm: () => event.emit(event.$names.MODAL_SHOW_ADD_USER_FORM),
     async login () {
       if (KOEL_ENV === 'app') {
         if (this.url.indexOf('http://') !== 0 && this.url.indexOf('https://') !== 0) {
@@ -72,6 +95,37 @@ export default {
       this.url = window.BASE_URL = ls.get('koelHost')
       this.email = ls.get('lastLoginEmail')
     }
+  },
+
+    created () {
+    event.on({
+      [event.$names.MODAL_SHOW_CREATE_SMART_PLAYLIST_FORM]: () => {
+        this.showingModalName = 'create-smart-playlist-form'
+      },
+
+      [event.$names.MODAL_SHOW_EDIT_SMART_PLAYLIST_FORM]: playlist => {
+        this.boundData.playlist = playlist
+        this.showingModalName = 'edit-smart-playlist-form'
+      },
+
+      [event.$names.MODAL_SHOW_ADD_USER_FORM]: () => {
+        this.showingModalName = 'add-user-form'
+      },
+
+      [event.$names.MODAL_SHOW_EDIT_USER_FORM]: user => {
+        this.boundData.user = user
+        this.showingModalName = 'edit-user-form'
+      },
+
+      [event.$names.MODAL_SHOW_EDIT_SONG_FORM]: songs => {
+        this.boundData.songs = songs
+        this.showingModalName = 'edit-song-form'
+      },
+
+      [event.$names.MODAL_SHOW_ABOUT_DIALOG]: () => {
+        this.showingModalName = 'about-dialog'
+      }
+    })
   }
 }
 </script>

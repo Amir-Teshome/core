@@ -2,7 +2,7 @@
   <div id="mainWrapper">
     <sidebar/>
     <main-content/>
-    <extra-panel/>
+    <!-- <extra-panel/> -->
     <modal-wrapper/>
   </div>
 </template>
