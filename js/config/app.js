@@ -1,3 +1,3 @@
 export const app = {
-  name: 'Koel'
+  name: 'Furqaan'
 }
