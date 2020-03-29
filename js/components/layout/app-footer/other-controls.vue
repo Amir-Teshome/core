@@ -1,7 +1,20 @@
 <template>
   <div class="other-controls">
     <div class="wrapper" v-koel-clickaway="closeEqualizer">
-      <equalizer v-if="useEqualizer" v-show="showEqualizer"/>
+      <!-- <equalizer v-if="useEqualizer" v-show="showEqualizer"/> -->
+
+      <volume/>
+
+      <span
+        @click.prevent="downloadCurrentSong"
+        class="download control"
+        role="button"
+        tabindex="0"
+        title="Download the current song"
+        v-if="downloadable"
+      >
+        <i class="fa fa-download"></i>
+      </span>
 
       <a @click.prevent="toggleVisualizer" title="Click for a marvelous visualizer!" role="button" tabindex="0">
         <sound-bar v-if="song.playbackState === 'playing'"/>
@@ -17,7 +30,7 @@
         :title="`${ song.liked ? 'Unlike' : 'Like' } current song`"
       ></i>
 
-      <span
+      <!-- <span
         :class="{ active: prefs.showExtraPanel }"
         @click.prevent="toggleExtraPanel"
         class="control info"
@@ -26,9 +39,9 @@
         title="View song information"
       >
         Info
-      </span>
+      </span> -->
 
-      <i
+      <!-- <i
         :class="{ active: showEqualizer }"
         @click="showEqualizer = !showEqualizer"
         class="fa fa-sliders control equalizer"
@@ -36,7 +49,7 @@
         role="button"
         tabindex="0"
         :title="`${ showEqualizer ? 'Hide' : 'Show'} equalizer`"
-      ></i>
+      ></i> -->
 
       <a v-else class="queue control" :class="{ active: viewingQueue }" href="#!/queue">
         <i class="fa fa-list-ol"></i>
@@ -53,18 +66,6 @@
         <i class="fa fa-repeat"></i>
       </span>
 
-      <volume/>
-
-      <span
-        @click.prevent="downloadCurrentSong"
-        class="download control"
-        role="button"
-        tabindex="0"
-        title="Download the current song"
-        v-if="downloadable"
-      >
-        <i class="fa fa-download"></i>
-      </span>
     </div>
   </div>
 </template>
