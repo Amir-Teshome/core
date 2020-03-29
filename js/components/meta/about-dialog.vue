@@ -1,7 +1,7 @@
 <template>
   <div class="about">
     <header>
-      <h1>About Koel</h1>
+      <h1>About Furqaan</h1>
     </header>
 
     <main>
@@ -18,12 +18,12 @@
       </p>
 
       <p class="author">
-        Made with ❤️ by <a href="https://github.com/phanan" target="_blank">Phan An</a>
+        This is a custom version of Koel player. The original app (Koel) is developed by <a href="https://github.com/phanan" target="_blank">Phan An</a>
         and quite a few <a href="https://github.com/koel/core/graphs/contributors" target="_blank">awesome</a>
         <a href="https://github.com/phanan/koel/graphs/contributors" target="_blank">contributors</a>.
       </p>
 
-      <p class="demo-credits" v-if="demo">
+      <!-- <p class="demo-credits" v-if="demo">
         Demo music provided by <a href="https://www.bensound.com" target="_blank">Bensound</a>.
       </p>
 
@@ -31,7 +31,7 @@
         Loving Koel? Please consider supporting its development via
         <a href="https://github.com/users/phanan/sponsorship" target="_blank">GitHub Sponsors</a> and/or
         <a href="https://opencollective.com/koel" target="_blank">OpenCollective</a>.
-      </p>
+      </p> -->
     </main>
 
     <footer>

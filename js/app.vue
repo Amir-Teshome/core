@@ -6,7 +6,7 @@
       <app-header/>
       <main-wrapper/>
       <app-footer/>
-      <support-koel/>
+      <!-- <support-koel/> -->
       <overlay ref="overlay"/>
     </div>
 
