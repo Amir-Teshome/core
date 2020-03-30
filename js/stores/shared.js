@@ -16,7 +16,7 @@ import {
 export const sharedStore = {
   state: {
     albums: [],
-    allowDownload: false,
+    allowDownload: true,
     artists: [],
     cdnUrl: '',
     currentUser: null,
@@ -42,7 +42,7 @@ export const sharedStore = {
         this.state = Object.assign(this.state, data)
 
         // Don't allow downloading on mobile devices
-        this.state.allowDownload &= !isMobile.any
+        // this.state.allowDownload &= !isMobile.any
 
         // Always disable YouTube integration on mobile.
         this.state.useYouTube &= !isMobile.phone

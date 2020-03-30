@@ -1,11 +1,9 @@
 <template>
   <div class="other-controls">
     <div class="wrapper" v-koel-clickaway="closeEqualizer">
-      <!-- <equalizer v-if="useEqualizer" v-show="showEqualizer"/> -->
+      <equalizer v-if="useEqualizer" v-show="showEqualizer"/>
 
-      <volume/>
-
-      <span
+       <span
         @click.prevent="downloadCurrentSong"
         class="download control"
         role="button"
@@ -15,6 +13,8 @@
       >
         <i class="fa fa-download"></i>
       </span>
+
+      <volume/>
 
       <a @click.prevent="toggleVisualizer" title="Click for a marvelous visualizer!" role="button" tabindex="0">
         <sound-bar v-if="song.playbackState === 'playing'"/>
@@ -39,9 +39,9 @@
         title="View song information"
       >
         Info
-      </span> -->
+      </span>
 
-      <!-- <i
+      <i
         :class="{ active: showEqualizer }"
         @click="showEqualizer = !showEqualizer"
         class="fa fa-sliders control equalizer"
@@ -66,6 +66,8 @@
         <i class="fa fa-repeat"></i>
       </span>
 
+
+     
     </div>
   </div>
 </template>
@@ -137,6 +139,7 @@ export default {
 .other-controls {
   @include vertical-center();
 
+  justify-content: left;
   position: relative;
   text-transform: uppercase;
   flex: 0 0 $extraPanelWidth;
@@ -183,24 +186,24 @@ export default {
     }
   }
 
-  @media only screen and (max-width: 768px) {
-    position: absolute !important;
-    right: 0;
-    top: 0;
-    height: 100%;
-    width: 188px;
+  // @media only screen and (max-width: 768px) {
+  //   position: absolute !important;
+  //   right: 0;
+  //   top: 0;
+  //   height: 100%;
+  //   width: 188px;
 
-    &::before {
-      display: none;
-    }
+  //   &::before {
+  //     display: none;
+  //   }
 
-    .queue {
-      display: none;
-    }
+  //   .queue {
+  //     display: none;
+  //   }
 
-    .control {
-      padding: 0 8px;
-    }
-  }
+  //   .control {
+  //     padding: 0 8px;
+  //   }
+  // }
 }
 </style>

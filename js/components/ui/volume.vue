@@ -98,8 +98,8 @@ export default {
     z-index: 1;
   }
 
-  @media only screen and (max-width: 768px) {
-    display: none !important;
-  }
+  // @media only screen and (max-width: 768px) {
+  //   display: none !important;
+  // }
 }
 </style>
