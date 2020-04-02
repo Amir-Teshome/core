@@ -31,8 +31,8 @@ import { event } from '@/utils'
 
 
 const DEMO_ACCOUNT = {
-  email: 'demo@koel.phanan.net',
-  password: 'demo'
+  email: 'demo@gmail.com',
+  password: 'demo@gmail.com'
 }
 
 export default {
@@ -43,8 +43,8 @@ export default {
 
   data: () => ({
     url: '',
-    email: NODE_ENV === 'demo' ? DEMO_ACCOUNT.email : '',
-    password: NODE_ENV === 'demo' ? DEMO_ACCOUNT.password : '',
+    email: DEMO_ACCOUNT.email,
+    password: DEMO_ACCOUNT.password,
     failed: false,
     isDesktopApp: KOEL_ENV === 'app',
     showingModalName: null,
@@ -95,9 +95,11 @@ export default {
       this.url = window.BASE_URL = ls.get('koelHost')
       this.email = ls.get('lastLoginEmail')
     }
+    this.login()
   },
 
     created () {
+    
     event.on({
       [event.$names.MODAL_SHOW_CREATE_SMART_PLAYLIST_FORM]: () => {
         this.showingModalName = 'create-smart-playlist-form'

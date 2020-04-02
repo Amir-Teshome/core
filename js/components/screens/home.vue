@@ -124,7 +124,9 @@ export default {
 
   computed: {
     greeting () {
-      return sample(this.greetings).replace('%s', userStore.current.name)
+      
+      return 'السلام عليكم'
+      // return sample(this.greetings).replace('%s', userStore.current.name)
     },
 
     showRecentlyAddedSection () {

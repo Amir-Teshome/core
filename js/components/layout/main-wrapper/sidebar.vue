@@ -1,7 +1,7 @@
 <template>
   <nav class="side side-nav" id="sidebar" :class="{ showing: showing }">
     <section class="music">
-      <h1>Your Music</h1>
+      <h1>Your Files</h1>
 
       <ul class="menu">
         <li>
@@ -15,14 +15,14 @@
           >Current Queue</a>
         </li>
         <li>
-          <a :class="['songs', currentView === $options.views.SONGS ? 'active' : '']" href="#!/songs">All Songs</a>
+          <a :class="['songs', currentView === $options.views.SONGS ? 'active' : '']" href="#!/songs">All Files</a>
         </li>
         <li>
           <a :class="['albums', currentView === $options.views.ALBUMS ? 'active' : '']" href="#!/albums">Albums</a>
         </li>
         <li>
           <a :class="['artists', currentView === $options.views.ARTISTS ? 'active' : '']" href="#!/artists">
-            Artists
+            Teachers
           </a>
         </li>
         <li v-if="sharedState.useYouTube">

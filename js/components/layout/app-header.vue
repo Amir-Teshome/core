@@ -8,7 +8,7 @@
       <i class="fa fa-search"></i>
     </span>
     <search-form/>
-    <div class="header-right">
+    <!-- <div class="header-right">
       <user-badge/>
       <a
         @click.prevent="showAboutDialog"
@@ -19,7 +19,7 @@
       >
         <i class="fa fa-info-circle"/>
       </a>
-    </div>
+    </div> -->
   </header>
 
 </template>
