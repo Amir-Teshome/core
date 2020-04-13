@@ -20,7 +20,7 @@
         <sound-bar v-if="song.playbackState === 'playing'"/>
       </a>
 
-      <i
+      <!-- <i
         :class="{ liked: song.liked }"
         @click.prevent="like"
         class="like control fa fa-heart"
@@ -30,7 +30,7 @@
         :title="`${ song.liked ? 'Unlike' : 'Like' } current song`"
       ></i>
 
-      <!-- <span
+      <span
         :class="{ active: prefs.showExtraPanel }"
         @click.prevent="toggleExtraPanel"
         class="control info"
@@ -49,11 +49,11 @@
         role="button"
         tabindex="0"
         :title="`${ showEqualizer ? 'Hide' : 'Show'} equalizer`"
-      ></i> -->
+      ></i>
 
       <a v-else class="queue control" :class="{ active: viewingQueue }" href="#!/queue">
         <i class="fa fa-list-ol"></i>
-      </a>
+      </a> -->
 
       <span
         :class="prefs.repeatMode"

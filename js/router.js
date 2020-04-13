@@ -12,6 +12,7 @@ export default {
     '/queue': () => loadMainView(views.QUEUE),
     '/songs': () => loadMainView(views.SONGS),
     '/albums': () => loadMainView(views.ALBUMS),
+    '/live': () => loadMainView(views.LIVE),
     '/artists': () => loadMainView(views.ARTISTS),
     '/favorites': () => loadMainView(views.FAVORITES),
     '/recently-played': () => loadMainView(views.RECENTLY_PLAYED),

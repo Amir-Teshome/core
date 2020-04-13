@@ -14,5 +14,6 @@ export const views = {
   PROFILE: 'PROFILE',
   ALBUM: 'ALBUM',
   ARTIST: 'ARTIST',
-  PLAYLIST: 'PLAYLIST'
+  PLAYLIST: 'PLAYLIST',
+  LIVE: 'LIVE'
 }

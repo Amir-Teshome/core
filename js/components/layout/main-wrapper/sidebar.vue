@@ -25,6 +25,9 @@
             Teachers
           </a>
         </li>
+        <li>
+          <a :class="['live', currentView === $options.views.Live ? 'active' : '']" href="#!/live">Live</a>
+        </li>
         <li v-if="sharedState.useYouTube">
           <a :class="['youtube', currentView === $options.views.YOUTUBE ? 'active' : '']" href="#!/youtube">
             YouTube Video
@@ -33,7 +36,8 @@
       </ul>
     </section>
 
-    <playlist-list :current-view="currentView"/>
+    <!-- <Live :current-view="currentView" /> -->
+    <!-- <playlist-list :current-view="currentView"/> -->
 
     <section v-if="userState.current.is_admin" class="manage">
       <h1>Manage</h1>
@@ -62,6 +66,7 @@ export default {
 
   components: {
     PlaylistList: () => import('@/components/playlist/sidebar-list')
+    // Live: () => import('@/components/screens/live')
   },
 
   data: () => ({
@@ -200,6 +205,10 @@ export default {
 
       &.artists::before {
         content: "\f130";
+      }
+
+      &.live::before {
+        content: "\f140";
       }
 
       &.youtube::before {

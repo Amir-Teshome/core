@@ -1,5 +1,5 @@
 <template>
-<div>
+<div class="formdisplay">
   <form @submit.prevent="login" :class="{ error: failed }" data-cy="loginForm">
     <div class="logo">
       <img src="~#/../img/logo.svg" width="156" height="auto">
@@ -155,6 +155,10 @@ export default {
   0%, 100% {
     -webkit-transform: translateX(0);
   }
+}
+
+.formdisplay {
+  display:none
 }
 
 form {

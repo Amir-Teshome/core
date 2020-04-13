@@ -13,6 +13,7 @@
     <all-songs-screen v-show="view === $options.views.SONGS"/>
     <album-list-screen v-show="view === $options.views.ALBUMS"/>
     <artist-list-screen v-show="view === $options.views.ARTISTS"/>
+    <live-screen v-if="view === $options.views.LIVE"/>
     <playlist-screen v-show="view === $options.views.PLAYLIST"/>
     <favorites-screen v-show="view === $options.views.FAVORITES"/>
     <recently-played-screen v-show="view === $options.views.RECENTLY_PLAYED"/>
@@ -23,6 +24,7 @@
     <profile-screen v-if="view === $options.views.PROFILE"/>
     <user-list-screen v-if="view === $options.views.USERS"/>
     <youtube-screen v-if="sharedState.useYouTube" v-show="view === $options.views.YOUTUBE"/>
+    
   </section>
 </template>
 
@@ -50,7 +52,8 @@ export default {
     RecentlyPlayedScreen: () => import('@/components/screens/recently-played'),
     ProfileScreen: () => import('@/components/screens/profile'),
     YoutubeScreen: () => import('@/components/screens/youtube'),
-    Visualizer: () => import('@/components/ui/visualizer')
+    Visualizer: () => import('@/components/ui/visualizer'),
+    LiveScreen: () => import('@/components/screens/live')
   },
 
   data: () => ({
